@@ -3,10 +3,8 @@
 var express = require('express');
 var session = require('express-session');
 var passport = require('passport');
-var OAuth2Strategy = require('../lib/strategy');
+var WechatStrategy = require('../lib/strategy');
 
-
-//Passport session setup
 
 passport.serializeUser(function (user, done) {
     done(null, user);
@@ -16,18 +14,17 @@ passport.deserializeUser(function (obj, done) {
     done(null, obj);
 });
 
-passport.use(new OAuth2Strategy({
+// 相关配置为测试账号信息
+passport.use(new WechatStrategy({
     appid: 'wx3af1ba5b6113419d',
     state: true,
     appSecret: '74c7bf3702ff7d2cbc554ce19248a4b7',
     callbackURL: 'http://api.liangyali.com:3000/auth/wechat/callback'
 }, function (openid, profile, token, done) {
-
     return done(null, openid, profile);
 }));
 
 var app = express();
-
 app.use(session({secret: 'test'}));
 
 app.get('/auth/err', function (req, res) {
@@ -51,8 +48,6 @@ app.get('/auth/wechat/callback', passport.authenticate('wechat', {
         successRedirect: '/auth/success'}),
     function (req, res) {
         //nothig to do
-
-
         res.json(req.user);
     });
 
