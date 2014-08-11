@@ -23,7 +23,6 @@ passport.use(new OAuth2Strategy({
     callbackURL: 'http://api.liangyali.com:3000/auth/wechat/callback'
 }, function (openid, profile, token, done) {
 
-    //处理用户信息，这里负责用户ID的转换，进行本地用户映射
     return done(null, openid, profile);
 }));
 
@@ -52,6 +51,7 @@ app.get('/auth/wechat/callback', passport.authenticate('wechat', {
         successRedirect: '/auth/success'}),
     function (req, res) {
         //nothig to do
+
 
         res.json(req.user);
     });
