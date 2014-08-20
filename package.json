@@ -43,8 +43,8 @@
     "express-session": "^1.7.4",
     "passport": "^0.2.0",
     "passport-strategy": "^1.0.0",
-    "request": "^2.40.0",
-    "uid2": "0.0.3",
-    "underscore": "^1.6.0"
+    "wechat": "latest",
+    "debug": "latest",
+    "uid2": "0.0.3"
   }
 }

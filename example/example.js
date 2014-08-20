@@ -16,16 +16,22 @@ passport.deserializeUser(function (obj, done) {
 
 // 相关配置为测试账号信息
 passport.use(new WechatStrategy({
-    appid: 'wx3af1ba5b6113419d',
-    state: true,
-    appSecret: '74c7bf3702ff7d2cbc554ce19248a4b7',
-    callbackURL: 'http://api.liangyali.com:3000/auth/wechat/callback'
+    appid: 'wx0ff7006738630a6c',
+    appsecret: '866796103d71f653d69809cf1e8c2dae',
+    callbackURL: 'http://192.168.1.70:3000/auth/wechat/callback',
+    scope: 'snsapi_base',
+    state: true
+    // appid: 'wx3af1ba5b6113419d',
+    // appsecret: '74c7bf3702ff7d2cbc554ce19248a4b7',
+    // callbackURL: 'http://api.liangyali.com:3000/auth/wechat/callback'
 }, function (openid, profile, token, done) {
     return done(null, openid, profile);
 }));
 
 var app = express();
 app.use(session({secret: 'test'}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.get('/auth/err', function (req, res) {
     res.send({message: 'error'});
