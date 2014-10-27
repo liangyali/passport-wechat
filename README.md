@@ -48,7 +48,7 @@ passport.deserializeUser(function (obj, done) {
 passport.use(new WechatStrategy({
     appid: 'wx3af1ba5b6113419d',
     state: true,
-    appSecret: '74c7bf3702ff7d2cbc554ce19248a4b7',
+    appsecret: '74c7bf3702ff7d2cbc554ce19248a4b7',
     callbackURL: 'http://api.liangyali.com:3000/auth/wechat/callback'
 }, function (openid, profile, token, done) {
     return done(null, openid, profile);
