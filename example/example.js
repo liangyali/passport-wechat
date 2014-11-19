@@ -51,11 +51,7 @@ app.get('/auth/wechat', passport.authenticate('wechat'), function (req, res) {
 
 app.get('/auth/wechat/callback', passport.authenticate('wechat', {
         failureRedirect: '/auth/err',
-        successRedirect: '/auth/success'}),
-    function (req, res) {
-        //nothig to do
-        res.json(req.user);
-    });
+        successRedirect: '/auth/success'}));
 
 app.get('/logout', function (req, res) {
     req.logout();
@@ -68,7 +64,7 @@ function ensureAuthenticated(req, res, next) {
         return next();
     }
 
-    res.redirect('login');
+    res.redirect('/login');
 }
 
 app.listen(3000, function () {
