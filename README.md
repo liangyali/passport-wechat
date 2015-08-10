@@ -1,20 +1,20 @@
-# passport-wechat [![Build Status](https://secure.travis-ci.org/liangyali/passport-wechat.png?branch=master)](http://travis-ci.org/liangyali/passport-wechat)
+# passport-wx [![Build Status](https://secure.travis-ci.org/liangyali/passport-wx.png?branch=master)](http://travis-ci.org/liangyali/passport-wx)
 
 > passport wechat
 
 
 ## Getting Started
 
-Install the module with: `npm install passport-wechat`
+Install the module with: `npm install passport-wx`
 
 ```js
-var WechatStrategy = require('passport-wechat');
+var WechatStrategy = require('passport-wx');
 ```
 
 Install with cli command
 
 ```sh
-$ npm install -g passport-wechat --save
+$ npm install -g passport-wx --save
 ```
 
 
@@ -50,12 +50,14 @@ passport.use(new WechatStrategy({
     appsecret: '866796103d71f653d69809cf1e8c2dae',
     callbackURL: 'http://192.168.1.70:3000/auth/wechat/callback',
     scope: 'snsapi_base',
-    state: true
+    state: true,
+    client: 'web', // optional, 'web' - for web qr connect, 'wechat' - for wechat app(default)
+    name: 'wechat2' // optional, default 'wechat', given more than one wechat strategies used
     // appid: 'wx3af1ba5b6113419d',
     // appsecret: '74c7bf3702ff7d2cbc554ce19248a4b7',
     // callbackURL: 'http://api.liangyali.com:3000/auth/wechat/callback'
-}, function (openid, profile, token, done) {
-    return done(null, openid, profile);
+}, function (accessToken, refreshToken, profile, done) {
+    return done(null, profile.openid, profile);
 }));
 
 var app = express();
