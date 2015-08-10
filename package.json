@@ -1,6 +1,6 @@
 {
   "name": "passport-wx",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/index.js",
   "description": "passport wechat",
   "homepage": "http://www.liangyali.com",
@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "debug": "latest",
+    "passport-strategy": "^1.0.0",
     "wechat-oauth": "^1.1.0"
   }
 }
