@@ -24,6 +24,11 @@ $ npm install -g passport-wx --save
 
 _(Coming soon)_
 
+### Appended Features
+* Support passing params to auth & callback, so requesting '/auth/wechat?next=/users/me' will then redirect to '/auth/wechat/callback?next=/users/me' and you can do `next`(such as redirect to `/users/me`) after authorized.
+* Both support auth in wechat webview (default) and web page qr connect (set client to 'web').
+* Support multiple wechat auths by specifying different strategy names.
+* Change to [passport OAuth2](http://passportjs.org/docs/oauth#oauth-2-0) standard verify callback.
 
 ## Examples
 
@@ -52,7 +57,7 @@ passport.use(new WechatStrategy({
     scope: 'snsapi_base',
     state: true,
     client: 'web', // optional, 'web' - for web qr connect, 'wechat' - for wechat app(default)
-    name: 'wechat2' // optional, default 'wechat', given more than one wechat strategies used
+    name: 'wechat' // optional, default 'wechat', given more than one wechat strategies used
     // appid: 'wx3af1ba5b6113419d',
     // appsecret: '74c7bf3702ff7d2cbc554ce19248a4b7',
     // callbackURL: 'http://api.liangyali.com:3000/auth/wechat/callback'
