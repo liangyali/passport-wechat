@@ -10,6 +10,9 @@
     "email": "me@liangyali.com",
     "url": "http://www.liangyali.com"
   },
+  "scripts": {
+    "eslint": "./node_modules/.bin/eslint ./app"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/liangyali/passport-wechat"
@@ -24,6 +27,7 @@
   ],
   "devDependencies": {
     "coveralls": "^2.11.1",
+    "eslint": "^1.4.1",
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-nodeunit": "^0.3.3",
     "grunt-contrib-watch": "^0.6.1",
@@ -35,16 +39,10 @@
     "should": "^4.0.4",
     "time-grunt": "^0.3.1"
   },
-  "scripts": {
-    "test": "grunt"
-  },
   "dependencies": {
     "debug": "latest",
-    "express": "^4.8.1",
-    "express-session": "^1.7.4",
     "passport": "^0.2.0",
     "passport-strategy": "^1.0.0",
-    "wechat": "latest",
     "wechat-oauth": "^1.0.1",
     "xtend": "^4.0.0"
   }
