@@ -45,6 +45,7 @@
     "passport": "^0.2.0",
     "passport-strategy": "^1.0.0",
     "wechat": "latest",
-    "wechat-oauth": "^1.0.1"
+    "wechat-oauth": "^1.0.1",
+    "xtend": "^4.0.0"
   }
 }
