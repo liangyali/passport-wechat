@@ -2,7 +2,7 @@
   "name": "passport-wechat",
   "version": "2.0.0",
   "main": "lib/index.js",
-  "description": "passport wechat",
+  "description": "passport strategy for authenticating with wechat",
   "homepage": "http://www.liangyali.com",
   "bugs": "https://github.com/liangyali/passport-wechat/issues",
   "author": {

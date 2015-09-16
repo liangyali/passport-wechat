@@ -1,114 +1,50 @@
-# passport-wechat [![Build Status](https://secure.travis-ci.org/liangyali/passport-wechat.png?branch=master)](http://travis-ci.org/liangyali/passport-wechat)
+# passport-wechat V2.0
 
-> passport wechat
+[![Dependencies](https://david-dm.org/jaredhanson/passport-wechat.svg)](https://david-dm.org/jaredhanson/passport-wechat)
 
+[Passport](http://passportjs.org/) strategy for authenticating with [Wechat](http://weixin.qq.com/)
 
-## Getting Started
+##支持功能
 
-Install the module with: `npm install passport-wechat`
+* 微信公众账号
+* 微信网站登陆
+
+## 安装
+
+    $ npm install passport-wechat
+    
+## 使用
+#### Configure  Strategy
 
 ```js
-var WechatStrategy = require('passport-wechat');
-```
 
-Install with cli command
-
-```sh
-$ npm install -g passport-wechat --save
-```
-
-
-
-
-## Documentation
-
-_(Coming soon)_
-
-
-## Examples
-
-```
-'use strict';
-
-var express = require('express');
-var session = require('express-session');
-var passport = require('passport');
-var WechatStrategy = require('../lib/strategy');
-
-
-passport.serializeUser(function (user, done) {
-    done(null, user);
-});
-
-passport.deserializeUser(function (obj, done) {
-    done(null, obj);
-});
-
-// 相关配置为测试账号信息
-passport.use(new WechatStrategy({
-    appid: 'wx0ff7006738630a6c',
-    appsecret: '866796103d71f653d69809cf1e8c2dae',
-    callbackURL: 'http://192.168.1.70:3000/auth/wechat/callback',
-    scope: 'snsapi_base',
-    state: true
-    // appid: 'wx3af1ba5b6113419d',
-    // appsecret: '74c7bf3702ff7d2cbc554ce19248a4b7',
-    // callbackURL: 'http://api.liangyali.com:3000/auth/wechat/callback'
-}, function (openid, profile, token, done) {
-    return done(null, openid, profile);
-}));
-
-var app = express();
-app.use(session({secret: 'test'}));
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.get('/auth/err', function (req, res) {
-    res.send({message: 'error'});
-});
-
-app.get('/auth/success', function (req, res) {
-    res.send({message: 'success'});
-});
-
-app.get('/', function (req, res) {
-    res.json({status: 'ok'});
-});
-
-app.get('/auth/wechat', passport.authenticate('wechat'), function (req, res) {
-    //dont't call it
-});
-
-app.get('/auth/wechat/callback', passport.authenticate('wechat', {
-        failureRedirect: '/auth/err',
-        successRedirect: '/auth/success'}));
-
-app.get('/logout', function (req, res) {
-    req.logout();
-    res.redirect('/');
-});
-
-
-function ensureAuthenticated(req, res, next) {
-    if (res.isAuthencicated()) {
-        return next();
-    }
-
-    res.redirect('/login');
-}
-
-app.listen(3000, function () {
-    console.log('started listen');
-});
-
+ passport.use(new WechatStrategy({
+        appID: {APPID},
+        appSecret: {APPSECRET},
+        client:{wechat|web},
+        callbackURL: {CALLBACKURL},
+        scope: {snsapi_userinfo|snsapi_base},
+        state:{STATE}
+      },
+      function(accessToken, refreshToken, profile, done) {
+        return done(err,profile);
+      }
+));
 
 ```
 
+#### Authenticate Requests
 
-## Contributing
+```js
 
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com).
+  router.get('/auth/wechat', passport.authenticate('wechat'));
 
+  router.get('/auth/wechat/callback', passport.authenticate('wechat', {
+    failureRedirect: '/auth/fail',
+    successReturnToOrRedirect: '/'
+  }));
+
+```
 
 ## License
 
