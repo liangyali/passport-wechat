@@ -1,6 +1,6 @@
-# passport-wechat V2.0
+# passport-wechat v2.0
 
-[![Dependencies](https://david-dm.org/jaredhanson/passport-wechat.svg)](https://david-dm.org/jaredhanson/passport-wechat)
+[![Dependencies](https://david-dm.org/liangyali/passport-wechat.svg)](https://david-dm.org/liangyali/passport-wechat)
 
 [Passport](http://passportjs.org/) strategy for authenticating with [Wechat](http://weixin.qq.com/)
 
