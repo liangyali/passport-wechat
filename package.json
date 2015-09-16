@@ -1,6 +1,6 @@
 {
   "name": "passport-wechat",
-  "version": "0.1.3",
+  "version": "2.0.0",
   "main": "lib/index.js",
   "description": "passport wechat",
   "homepage": "http://www.liangyali.com",
@@ -23,7 +23,8 @@
   ],
   "keywords": [
     "passport",
-    "wechat"
+    "wechat",
+    "weixin"
   ],
   "devDependencies": {
     "eslint": "^1.4.1"
