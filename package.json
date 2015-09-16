@@ -26,18 +26,7 @@
     "wechat"
   ],
   "devDependencies": {
-    "coveralls": "^2.11.1",
-    "eslint": "^1.4.1",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-contrib-nodeunit": "^0.3.3",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-mocha-test": "^0.11.0",
-    "istanbul": "^0.3.0",
-    "jshint-stylish": "^0.2.0",
-    "load-grunt-tasks": "^0.4.0",
-    "mocha": "^1.21.0",
-    "should": "^4.0.4",
-    "time-grunt": "^0.3.1"
+    "eslint": "^1.4.1"
   },
   "dependencies": {
     "debug": "latest",
