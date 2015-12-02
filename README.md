@@ -36,14 +36,18 @@
 #### Authenticate Requests
 
 ```js
+  router.get('/auth/wechat', passport.authenticate('wechat', options));
+```
+`options` - Optional. Can include the following:
+* `state` - Override state for this specific API call
 
-  router.get('/auth/wechat', passport.authenticate('wechat'));
+#### Authentication Callback
 
+```js
   router.get('/auth/wechat/callback', passport.authenticate('wechat', {
     failureRedirect: '/auth/fail',
     successReturnToOrRedirect: '/'
   }));
-
 ```
 
 ## License
