@@ -20,6 +20,7 @@
 
  passport.use(new WechatStrategy({
         appID: {APPID},
+        name:{默认为wechat,可以设置组件的名字}
         appSecret: {APPSECRET},
         client:{wechat|web},
         callbackURL: {CALLBACKURL},
