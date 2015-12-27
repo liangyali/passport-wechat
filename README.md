@@ -41,6 +41,7 @@
 ```
 `options` - Optional. Can include the following:
 * `state` - Override state for this specific API call
+* `callbackURL` - Override callbackURL for this specific API call
 
 #### Authentication Callback
 
