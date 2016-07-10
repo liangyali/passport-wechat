@@ -1,18 +1,21 @@
 {
-  "name": "passport-wx",
-  "version": "0.0.3",
+  "name": "passport-wechat",
+  "version": "2.0.2",
   "main": "lib/index.js",
-  "description": "passport wechat",
+  "description": "passport strategy for authenticating with wechat",
   "homepage": "http://www.liangyali.com",
-  "bugs": "https://github.com/loulin/passport-wx/issues",
+  "bugs": "https://github.com/liangyali/passport-wechat/issues",
   "author": {
     "name": "liangyali",
     "email": "me@liangyali.com",
     "url": "http://www.liangyali.com"
   },
+  "scripts": {
+    "eslint": "./node_modules/.bin/eslint ./app"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/loulin/passport-wx"
+    "url": "https://github.com/liangyali/passport-wechat"
   },
   "license": "MIT",
   "files": [
@@ -20,27 +23,17 @@
   ],
   "keywords": [
     "passport",
-    "wechat"
+    "wechat",
+    "weixin"
   ],
   "devDependencies": {
-    "coveralls": "^2.11.1",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-contrib-nodeunit": "^0.3.3",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-mocha-test": "^0.11.0",
-    "istanbul": "^0.3.0",
-    "jshint-stylish": "^0.2.0",
-    "load-grunt-tasks": "^0.4.0",
-    "mocha": "^1.21.0",
-    "should": "^4.0.4",
-    "time-grunt": "^0.3.1"
-  },
-  "scripts": {
-    "test": "grunt"
+    "eslint": "^1.4.1"
   },
   "dependencies": {
     "debug": "latest",
+    "passport": "^0.3.0",
     "passport-strategy": "^1.0.0",
-    "wechat-oauth": "^1.1.0"
+    "wechat-oauth": "^1.0.1",
+    "xtend": "^4.0.0"
   }
 }
