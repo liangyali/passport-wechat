@@ -32,6 +32,8 @@
       }
 ));
 
+The `callbackURL`, `scope` and `state` can be overwritten in `passport.authenticate` middleware.
+
 ```
 
 #### Authenticate Requests
@@ -42,6 +44,9 @@
 `options` - Optional. Can include the following:
 * `state` - Override state for this specific API call
 * `callbackURL` - Override callbackURL for this specific API call
+* `scope` - Override scope for this specific API call
+
+If no callbackURL is specified, the same request url will be used.
 
 #### Authentication Callback
 
