@@ -25,7 +25,9 @@
         client:{wechat|web},
         callbackURL: {CALLBACKURL},
         scope: {snsapi_userinfo|snsapi_base},
-        state:{STATE}
+        state:{STATE},
+        getToken: {getToken},
+        saveToken: {saveToken}
       },
       function(accessToken, refreshToken, profile, done) {
         return done(err,profile);
@@ -33,6 +35,8 @@
 ));
 
 The `callbackURL`, `scope` and `state` can be overwritten in `passport.authenticate` middleware.
+
+The `getToken` and `saveToken` can be provided to initialize Wechat OAuth instance.
 
 ```
 
