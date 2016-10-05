@@ -12,7 +12,7 @@
 ## 安装
 
     $ npm install passport-wechat
-    
+
 ## 使用
 #### Configure  Strategy
 
@@ -29,7 +29,7 @@
         getToken: {getToken},
         saveToken: {saveToken}
       },
-      function(accessToken, refreshToken, profile, done) {
+      function(accessToken, refreshToken, profile,expires_in, done) {
         return done(err,profile);
       }
 ));
